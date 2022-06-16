@@ -1,0 +1,16 @@
+body {
+  background-color: rgb(20, 18, 32)!important;
+  color: white;
+}
+h1,h2 {
+  font-size: calc(16px + 6 * ((100vw - 320px) / 680));
+}
+h2 {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  color: rgba(255, 255, 0, 0.21);
+  font-family: montserrat;
+  font-weight: 800;
+  transform: translate(-50%, -50%);
+}
