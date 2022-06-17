@@ -61,20 +61,32 @@ const personalMovieDB = {
 }
 
 
-let Film1 = personalMovieDB.movies[`${prompt("Один из последних просмотренных фильмов?","")}`] = prompt("На сколько оцените его?", "")
+// let Film1 = personalMovieDB.movies[`${prompt("Один из последних просмотренных фильмов?","")}`] = prompt("На сколько оцените его?", "")
 
-while ((Film1 === '') || (Film1 === null) || (Film1.length > 50)) {
-  Film1 = personalMovieDB.movies[`${prompt("Один из последних просмотренных фильмов?","")}`] = prompt("На сколько оцените его?", "")
-}
+// while ((Film1 === '') || (Film1 === null) || (Film1.length > 50)) {
+//   Film1 = personalMovieDB.movies[`${prompt("Один из последних просмотренных фильмов?","")}`] = prompt("На сколько оцените его?", "")
+// }
 
 
-let Film2 = personalMovieDB.movies[`${prompt("Один из последних просмотренных фильмов?","")}`] = prompt("На сколько оцените его?", "")
+// let Film2 = personalMovieDB.movies[`${prompt("Один из последних просмотренных фильмов?","")}`] = prompt("На сколько оцените его?", "")
 
-while ((Film2 === '') || (Film2 === null) || (Film2.length > 50)) {
-  Film2 = personalMovieDB.movies[`${prompt("Один из последних просмотренных фильмов?","")}`] = prompt("На сколько оцените его?", "")
-}
+// while ((Film2 === '') || (Film2 === null) || (Film2.length > 50)) {
+//   Film2 = personalMovieDB.movies[`${prompt("Один из последних просмотренных фильмов?","")}`] = prompt("На сколько оцените его?", "")
+// }
+
 // // const Film1 = personalMovieDB.movies[`Терминатор`] = 8
 // // const Film2 = personalMovieDB.movies[`Матрица`] = 9
+
+
+for(let i = 0; i < 2; i++){                                          // Производим 2 итерации. Условие (начать с 0, пока i менше 2; i++) - 2 раза выполнить блок кода {}
+
+  let Film = personalMovieDB.movies[`${prompt("Один из последних просмотренных фильмов?","")}`] = prompt("На сколько оцените его?", "")
+
+  while ((Film === '') || (Film === null) || (Film.length > 50)) {
+    Film = personalMovieDB.movies[`${prompt("Один из последних просмотренных фильмов?","")}`] = prompt("На сколько оцените его?", "")
+  }
+
+}
 
 
 console.log(personalMovieDB)
