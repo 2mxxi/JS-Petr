@@ -23,16 +23,32 @@ while ((numberOfFilms === '') || (numberOfFilms === null) || (numberOfFilms.leng
   numberOfFilms = prompt("Сколько фильмов вы уже посмотрели?", "")
 }
 
-if((numberOfFilms >= 0) && (numberOfFilms <= 10)){
-  alert("Просмотрено довольно мало фильмов")
-} else 
-if ((numberOfFilms > 10) && (numberOfFilms <= 30)) {
-  alert("Вы классический зритель")
-} else 
-if(numberOfFilms > 30) {
-  alert("Вы киноман")
-} else {
-  alert("Произошла ошибка")
+// if((numberOfFilms >= 0) && (numberOfFilms <= 10)){
+//   alert("Просмотрено довольно мало фильмов")
+// } else 
+// if ((numberOfFilms > 10) && (numberOfFilms <= 30)) {
+//   alert("Вы классический зритель")
+// } else 
+// if(numberOfFilms > 30) {
+//   alert("Вы киноман")
+// } else {
+//   alert("Произошла ошибка")
+// }
+
+switch (true) {
+  case (numberOfFilms >= 0) && (numberOfFilms <= 10):             //берем numberOfFilms и проверяем его на кейс - (numberOfFilms >= 0) && (numberOfFilms <= 10), если true, выводим соотв. алерт.
+    alert("Просмотрено довольно мало фильмов")
+    break;
+  case (numberOfFilms > 10) && (numberOfFilms <= 30):
+    alert("Вы классический зритель")
+    break;
+  case (numberOfFilms > 30):
+    alert("Вы классический зритель")
+    break;
+
+  default:
+    alert("Произошла ошибка")
+    break;
 }
 
 
