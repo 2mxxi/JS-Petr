@@ -43,7 +43,7 @@ switch (true) {
     alert("Вы классический зритель")
     break;
   case (numberOfFilms > 30):
-    alert("Вы классический зритель")
+    alert("Вы киноман")
     break;
 
   default:
@@ -78,15 +78,33 @@ const personalMovieDB = {
 // // const Film2 = personalMovieDB.movies[`Матрица`] = 9
 
 
-for(let i = 0; i < 2; i++){                                          // Производим 2 итерации. Условие (начать с 0, пока i менше 2; i++) - 2 раза выполнить блок кода {}
+// for(let i = 0; i < 2; i++){                                          // Производим 2 итерации. Условие (начать с 0, пока i менше 2; i++) - 2 раза выполнить блок кода {}
 
-  let Film = personalMovieDB.movies[`${prompt("Один из последних просмотренных фильмов?","")}`] = prompt("На сколько оцените его?", "")
+//   const filmName = prompt("Один из последних просмотренных фильмов?",""),
+//         filmRate = prompt("На сколько оцените его?", "");
 
-  while ((Film === '') || (Film === null) || (Film.length > 50)) {
-    Film = personalMovieDB.movies[`${prompt("Один из последних просмотренных фильмов?","")}`] = prompt("На сколько оцените его?", "")
-  }
+//   if ( filmName != '' && filmName != null && filmName.length < 50 && filmRate != '' && filmRate != null && filmRate.length < 50) {
+//     personalMovieDB.movies[filmName] = filmRate;
+//   } else {
+//     i--;                                        //Иначе итерация -1 шаг назад
+//   };
+// }
 
-}
+//Переписать с do - while
+
+
+let i = 0
+
+
+
+do {
+  const filmName = prompt("Один из последних просмотренных фильмов?",""),
+        filmRate = prompt("На сколько оцените его?", "");
+        
+  ( filmName != '' && filmName != null && filmName.length < 50 && filmRate != '' && filmRate != null && filmRate.length < 50)? personalMovieDB.movies[filmName] = filmRate : i--;
+
+  i++;
+} while (i < 2);
 
 
 console.log(personalMovieDB)
