@@ -47,3 +47,9 @@ for (const key in myObj) {
 }
 
 console.log(newArray)
+
+// const expArr = ['elephant', 'hippo', 'tiger']
+
+// expArr.forEach(el => {
+//   console.log(expArr[1])
+// });
