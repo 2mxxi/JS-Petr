@@ -17,7 +17,7 @@
 const movieDB = {
     movies: [
         "Логан",
-        "Лига справедливости",
+        "Kига справедливости",
         "Ла-ла лэнд",
         "Одержимость",
         "Скотт Пилигрим против..."
@@ -29,7 +29,8 @@ const movieDB = {
 const adv = document.getElementsByClassName('promo__adv')
 const genre = document.getElementsByClassName('promo__genre')
 const promo_bg = document.getElementsByClassName('promo__bg')
-const listOfFilms = document.getElementsByClassName('promo__interactive-item')
+const listOfFilms = document.querySelector('.promo__interactive-list')
+console.log(listOfFilms)
 
 // 1)
 adv[0].remove();
@@ -38,7 +39,14 @@ genre[0].textContent = 'ДРАМА'
 // 3)
 promo_bg[0].style.cssText = 'background-image: url(img/bg.jpg)'
 // 4)
-for (let i = 0; i < listOfFilms.length; i++) {
-    listOfFilms[i].textContent = `№${i+1}: ${movieDB.movies[i]}`
-}
+movieDB.movies.sort()
 
+
+listOfFilms.innerHTML = "";
+
+movieDB.movies.forEach( (el, i) => {
+    listOfFilms.innerHTML += `
+    <li class="promo__interactive-item">№${i+1} ${el}
+        <div class="delete"></div>
+    </li>`
+});
