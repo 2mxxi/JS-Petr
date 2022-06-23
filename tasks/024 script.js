@@ -14,38 +14,6 @@
 
 'use strict';
 
-let numberOfFilms
-
-// function start() {
-//   numberOfFilms = prompt("Сколько фильмов вы уже посмотрели?", "")
-
-//   while (numberOfFilms === '' || numberOfFilms === null || isNaN(numberOfFilms)) {
-//     numberOfFilms = prompt("Сколько фильмов вы уже посмотрели?", "")
-//   }
-// }
-
-
-
-
-// function detectPersonalLevel() {
-//   switch (true) {
-//     case (numberOfFilms >= 0) && (numberOfFilms <= 10):
-//       alert("Просмотрено довольно мало фильмов")
-//       break;
-//     case (numberOfFilms > 10) && (numberOfFilms <= 30):
-//       alert("Вы классический зритель")
-//       break;
-//     case (numberOfFilms > 30):
-//       alert("Вы киноман")
-//       break;
-  
-//     default:
-//       alert("Произошла ошибка")
-//       break;
-//   }
-// }
-
-
 
 const personalMovieDB = {
     count: numberOfFilms,
@@ -107,7 +75,7 @@ const personalMovieDB = {
     },
     showMyGanres: function(){
       this.genres.forEach(el => {
-        console.log(`Любимый жанр # ${ this.genres.indexOf(el)+1} - это ${this.genres[this.genres.indexOf(el)]}`)
+        console.log(`Любимый жанр # ${ this.genres.indexOf(el) + 1} - это ${this.genres[this.genres.indexOf(el)]}`)
       });
     }
 }
@@ -119,37 +87,4 @@ personalMovieDB.writeYourGenres()
 personalMovieDB.toggleVisibleMyDB()
 personalMovieDB.showMyDB(personalMovieDB.privat)
 personalMovieDB.showMyGanres()
-
-
-
-// function rememberMyFilms(){
-//   let i = 0
-//   do {
-//     const filmName = prompt("Один из последних просмотренных фильмов?",""),
-//           filmRate = prompt("На сколько оцените его?", "");
-
-//     ( filmName != '' && filmName != null && filmName.length < 50 && filmRate != '' && filmRate != null && filmRate.length < 50)? personalMovieDB.movies[filmName] = filmRate : i--;
-
-//     i++;
-//   } while (i < 2);
-// }
-
-
-
-// function writeYourGenres(){
-
-//   let i=0
-//   while(i<3){
-//     personalMovieDB.genres[i] = prompt(`Ваш любимый жанр под номером ${i+1}`)
-//     i++
-//   }
-// }
-
-
-
-// function showMyDB(result){
-//   if(!result){
-//     console.log(personalMovieDB)
-//   }
-// }
 

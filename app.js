@@ -53,3 +53,7 @@ console.log(newArray)
 // expArr.forEach(el => {
 //   console.log(expArr[1])
 // });
+
+let y = 
+
+console.log( false - null + true )
