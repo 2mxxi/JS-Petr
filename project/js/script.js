@@ -24,3 +24,21 @@ const movieDB = {
     ]
 };
 
+// 1)
+
+const adv = document.getElementsByClassName('promo__adv')
+const genre = document.getElementsByClassName('promo__genre')
+const promo_bg = document.getElementsByClassName('promo__bg')
+const listOfFilms = document.getElementsByClassName('promo__interactive-item')
+
+// 1)
+adv[0].remove();
+// 2)
+genre[0].textContent = 'ДРАМА'
+// 3)
+promo_bg[0].style.cssText = 'background-image: url(img/bg.jpg)'
+// 4)
+for (let i = 0; i < listOfFilms.length; i++) {
+    listOfFilms[i].textContent = `№${i+1}: ${movieDB.movies[i]}`
+}
+
