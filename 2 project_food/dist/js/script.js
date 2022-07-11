@@ -99,4 +99,92 @@ window.addEventListener("DOMContentLoaded", () => {
 
   setClock('.timer', deadline);
 
+  //Modal
+
+  const trigger = document.getElementsByClassName('open'),
+        close = document.querySelector('.modal__close'),
+        modal = document.querySelector('.modal');
+
+  function openModal(){
+    modal.style.display = 'block';
+    modal.classList.add('fade');
+    document.body.style.overflow = 'hidden';
+    clearInterval(modalTimerId);
+  }
+
+  [...trigger].forEach(el => {
+    el.addEventListener('click', openModal);
+  })
+
+  function closeModal(){
+    modal.style.display = 'none';
+    document.body.style.overflow = '';
+  }
+
+  close.addEventListener('click', closeModal)
+
+  modal.addEventListener('click', (event)=>{                 //Если клик по затемненноый области, закрыть окно
+    if(event.target === modal){
+      closeModal();
+    }
+  })
+
+  document.addEventListener('keydown', (event)=>{                        //Закрытие по нажати Esc 
+    if(event.code === 'Escape' && modal.style.display === 'block'){     //Проверяем, нажат ли esc и откыто ли сейчас окно
+      closeModal()
+    }
+  })
+
+  const modalTimerId = setTimeout(openModal, 5000)
+
+  // window.pageYOffset + document.documentElement.clientHeight    //Высота прокрученной части и высота клиента(окна)
+  // document.documentElement.scrollHeight    //Полная высота
+
+  function shiwModalByScroll(){
+    if(window.pageYOffset + document.documentElement.clientHeight >= document.documentElement.scrollHeight){
+      openModal();
+      window.removeEventListener('scroll', shiwModalByScroll);
+     }
+  }
+
+
+  window.addEventListener('scroll', shiwModalByScroll);
+
+  // Классы для карточек
+
+  const menuWrapper = document.querySelector('.menu__field')
+  const menuContainer = menuWrapper.querySelector('.container')
+
+  class Card {
+    constructor(img, heading, text, alttext, price){
+      this.img = img;
+      this.heading = heading;
+      this.text = text;
+      this.price = price;
+      this.alttext = alttext;
+      this.usdRurcourse = 60;
+      this.currencyConvert();
+    }
+    addCard(){
+      menuContainer.insertAdjacentHTML('afterbegin', `<div class="menu__item"><img src="${this.img}" alt="${this.alttext}"><h3 class="menu__item-subtitle">${this.heading}</h3><div class="menu__item-descr">${this.text}</div><div class="menu__item-divider"></div><div class="menu__item-price"><div class="menu__item-cost">Цена:</div><div class="menu__item-total"><span>${this.price}</span> руб./день</div></div></div>`)
+    }
+    currencyConvert(){
+      this.price = this.price * this.usdRurcourse;
+    }
+  }
+
+
+  // const cardMeatless = new Card('img/tabs/post.jpg', 'Меню Постное', 'Меню “Постное” - это тщательный подбор ингредиентов: полное отсутствие продуктов животного происхождения, молоко из миндаля, овса, кокоса или гречки, правильное количество белков за счет тофу и импортных вегетарианских стейков.', 'Меню Постное', 8)
+  // cardMeatless.addCard()
+  // const cardPremium = new Card('img/tabs/elite.jpg', 'Меню “Премиум“', 'В меню “Премиум” мы используем не только красивый дизайн упаковки, но и качественное исполнение блюд. Красная рыба, морепродукты, фрукты - ресторанное меню без похода в ресторан!', 'Меню Премиум', 10)
+  // cardPremium.addCard()
+  // const cardFitness = new Card('img/tabs/vegy.jpg', 'Меню “Фитнес“', 'Меню "Фитнес" - это новый подход к приготовлению блюд: больше свежих овощей и фруктов. Продукт активных и здоровых людей. Это абсолютно новый продукт с оптимальной ценой и высоким качеством!','Меню Фитнес', 6)
+  // cardFitness.addCard()
+
+  // или
+
+  new Card('img/tabs/post.jpg', 'Меню Постное', 'Меню “Постное” - это тщательный подбор ингредиентов: полное отсутствие продуктов животного происхождения, молоко из миндаля, овса, кокоса или гречки, правильное количество белков за счет тофу и импортных вегетарианских стейков.', 'Меню Постное', 8).addCard()
+  new Card('img/tabs/elite.jpg', 'Меню “Премиум“', 'В меню “Премиум” мы используем не только красивый дизайн упаковки, но и качественное исполнение блюд. Красная рыба, морепродукты, фрукты - ресторанное меню без похода в ресторан!', 'Меню Премиум', 10).addCard()
+  new Card('img/tabs/vegy.jpg', 'Меню “Фитнес“', 'Меню "Фитнес" - это новый подход к приготовлению блюд: больше свежих овощей и фруктов. Продукт активных и здоровых людей. Это абсолютно новый продукт с оптимальной ценой и высоким качеством!','Меню Фитнес', 6).addCard()
+
 });
